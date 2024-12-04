@@ -5,15 +5,18 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
 body {
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
 }
+
 a {
     text-decoration: none;
     color: inherit;
 }
+
 ul {
     list-style-type: none;
 }
@@ -27,15 +30,28 @@ header {
     top: 0;
     z-index: 100;
 }
+
 .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Allow the navbar items to wrap */
 }
+
+h1 {
+    font-size: 4vw; /* Make the font size responsive based on viewport width */
+    font-weight: 600;
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-align: center;
+    max-width: 100%; /* Ensures the text takes full width */
+    margin: 0;
+}
+
 nav ul {
     display: flex;
     gap: 20px;
 }
+
 nav ul li a {
     font-size: 18px;
     color: white;
@@ -43,6 +59,7 @@ nav ul li a {
     letter-spacing: 1px;
     transition: color 0.3s ease;
 }
+
 nav ul li a:hover {
     color: #ff6f61;
     transform: scale(1.1);
@@ -58,6 +75,7 @@ nav ul li a:hover {
     text-align: center;
     color: white;
 }
+
 .hero h2 {
     font-size: 48px;
     font-weight: 600;
@@ -65,12 +83,14 @@ nav ul li a:hover {
     text-transform: uppercase;
     letter-spacing: 2px;
 }
+
 .hero p {
     font-size: 22px;
     margin-bottom: 30px;
     font-weight: 300;
     letter-spacing: 1px;
 }
+
 .cta-btn {
     padding: 15px 30px;
     background-color: #ff6f61;
@@ -80,6 +100,7 @@ nav ul li a:hover {
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 .cta-btn:hover {
     background-color: #e8594a;
     transform: scale(1.1);
@@ -90,6 +111,7 @@ nav ul li a:hover {
     text-align: center;
     margin-top: 40px;
 }
+
 .search-bar {
     padding: 10px;
     width: 60%;
@@ -99,6 +121,7 @@ nav ul li a:hover {
     margin: 20px 0;
     transition: width 0.3s ease, border-color 0.3s ease;
 }
+
 .search-bar:focus {
     outline: none;
     border-color: #ff6f61;
@@ -111,18 +134,21 @@ nav ul li a:hover {
     padding: 60px 20px;
     text-align: center;
 }
+
 .songs-section h2 {
     font-size: 36px;
     margin-bottom: 40px;
     color: #333;
     font-weight: 600;
 }
+
 .song-list {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
 }
+
 .song-item {
     background-color: #f9f9f9;
     padding: 20px;
@@ -133,19 +159,23 @@ nav ul li a:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: linear-gradient(to bottom, #f9f9f9, #f1f1f1);
 }
+
 .song-item:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
 .song-item h3 {
     font-size: 20px;
     margin-bottom: 10px;
     font-weight: 500;
 }
+
 .song-item p {
     font-size: 16px;
     color: #777;
 }
+
 .song-item button {
     padding: 10px;
     background-color: #333;
@@ -155,6 +185,7 @@ nav ul li a:hover {
     border-radius: 25px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 .song-item button:hover {
     background-color: #ff6f61;
     transform: scale(1.05);
@@ -167,11 +198,13 @@ nav ul li a:hover {
     text-align: center;
     color: #333;
 }
+
 .about-section h2 {
     font-size: 36px;
     margin-bottom: 20px;
     font-weight: 600;
 }
+
 .about-section p {
     font-size: 18px;
     max-width: 800px;
@@ -187,11 +220,13 @@ nav ul li a:hover {
     text-align: center;
     color: #333;
 }
+
 .contact-section h2 {
     font-size: 36px;
     margin-bottom: 20px;
     font-weight: 600;
 }
+
 .contact-section p {
     font-size: 18px;
     margin-top: 10px;
@@ -209,49 +244,42 @@ footer {
 }
 
 /* Media Queries for Responsiveness */
-@media (max-width: 480px) {
-    .hero h2 {
-        font-size: 32px;
-    }
-    .hero p {
-        font-size: 18px;
-    }
-    .cta-btn {
-        font-size: 16px;
-    }
-    .search-bar {
-        width: 80%;
-    }
-    .songs-section h2 {
-        font-size: 28px;
-    }
-    .song-list {
-        gap: 15px;
-    }
-    .song-item {
-        width: 45%;
+@media (max-width: 768px) {
+    h1 {
+        font-size: 6vw; /* Adjust font size for tablets */
     }
 }
 
-@media (max-width: 460px) {
-    .hero h2 {
-        font-size: 28px;
+@media (max-width: 480px) {
+    h1 {
+        font-size: 8vw; /* Adjust font size for mobile devices */
+        white-space: nowrap; /* Ensure the text stays in one line */
     }
+
+    .hero h2 {
+        font-size: 32px;
+    }
+
     .hero p {
+        font-size: 18px;
+    }
+
+    .cta-btn {
         font-size: 16px;
     }
-    .cta-btn {
-        font-size: 14px;
-    }
+
     .search-bar {
-        width: 90%;
+        width: 80%;
     }
+
     .songs-section h2 {
         font-size: 24px;
     }
+
     .song-list {
         gap: 10px;
     }
+
     .song-item {
         width: 45%;
     }
