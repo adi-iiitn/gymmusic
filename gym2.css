@@ -6,8 +6,9 @@
     font-family: 'Poppins', sans-serif;
 }
 body {
-    background-color: #f0f0f0;
+    background-color: #f4f4f4;
     color: #333;
+    line-height: 1.6;
 }
 a {
     text-decoration: none;
@@ -38,31 +39,37 @@ nav ul {
 nav ul li a {
     font-size: 18px;
     color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: color 0.3s ease;
 }
 nav ul li a:hover {
     color: #ff6f61;
+    transform: scale(1.1);
 }
 
 /* Hero Section */
 .hero {
-    background: url('gymb2.jpg') no-repeat center center/cover;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('gymb2.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: white;
 }
 .hero h2 {
-    color: white;
     font-size: 48px;
     font-weight: 600;
     margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 .hero p {
-    color: white;
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 30px;
+    font-weight: 300;
+    letter-spacing: 1px;
 }
 .cta-btn {
     padding: 15px 30px;
@@ -71,10 +78,11 @@ nav ul li a:hover {
     border-radius: 25px;
     font-size: 18px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .cta-btn:hover {
     background-color: #e8594a;
+    transform: scale(1.1);
 }
 
 /* Search Section */
@@ -86,10 +94,10 @@ nav ul li a:hover {
     padding: 10px;
     width: 60%;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 25px;
     border: 1px solid #ccc;
     margin: 20px 0;
-    transition: width 0.3s ease;
+    transition: width 0.3s ease, border-color 0.3s ease;
 }
 .search-bar:focus {
     outline: none;
@@ -100,12 +108,14 @@ nav ul li a:hover {
 /* Songs Section */
 .songs-section {
     background-color: #fff;
-    padding: 40px 20px;
+    padding: 60px 20px;
     text-align: center;
 }
 .songs-section h2 {
     font-size: 36px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: 600;
 }
 .song-list {
     display: flex;
@@ -120,14 +130,17 @@ nav ul li a:hover {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(to bottom, #f9f9f9, #f1f1f1);
 }
 .song-item:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 .song-item h3 {
     font-size: 20px;
     margin-bottom: 10px;
+    font-weight: 500;
 }
 .song-item p {
     font-size: 16px;
@@ -139,50 +152,60 @@ nav ul li a:hover {
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .song-item button:hover {
     background-color: #ff6f61;
+    transform: scale(1.05);
 }
 
 /* About Section */
 .about-section {
-    padding: 40px 20px;
+    padding: 60px 20px;
     background-color: #f9f9f9;
     text-align: center;
+    color: #333;
 }
 .about-section h2 {
     font-size: 36px;
     margin-bottom: 20px;
+    font-weight: 600;
 }
 .about-section p {
     font-size: 18px;
     max-width: 800px;
     margin: 0 auto;
+    font-weight: 300;
+    line-height: 1.8;
 }
 
 /* Contact Section */
 .contact-section {
-    padding: 40px 20px;
+    padding: 60px 20px;
     background-color: #fff;
     text-align: center;
+    color: #333;
 }
 .contact-section h2 {
     font-size: 36px;
     margin-bottom: 20px;
+    font-weight: 600;
 }
 .contact-section p {
     font-size: 18px;
     margin-top: 10px;
+    font-weight: 300;
+    line-height: 1.8;
 }
 
 /* Footer */
 footer {
     background-color: #333;
     color: white;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
+    font-size: 14px;
 }
 
 /* Media Queries for Responsiveness */
@@ -203,10 +226,10 @@ footer {
         font-size: 28px;
     }
     .song-list {
-        gap: 10px;
+        gap: 15px;
     }
     .song-item {
-        width: 45%; /* Two items per row */
+        width: 45%;
     }
 }
 
@@ -230,6 +253,6 @@ footer {
         gap: 10px;
     }
     .song-item {
-        width: 45%; /* Ensure two items per row even at 460px */
+        width: 45%;
     }
 }
