@@ -1,65 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gym Music India</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="gym2.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order - Food Delivery</title>
+    <link rel="stylesheet" href="gym2.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <header>
-    <nav>
-      <div class="navbar-container">
-        <h1>Gym Music India</h1>
-        <ul>
-          <li><a href="#songs">Songs</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="ATARRAFOODS (1) (1).png" alt="Logo" class="logo">
+        </div>
+        <div class="navbar-middle">
+            <input type="text" id="search-bar" placeholder="Search by food or restaurant..." oninput="filterSearch()">
+        </div>
+        <div class="navbar-right">
+            <div class="cart" onclick="redirectToCart()">
+                <span id="cart-quantity">0</span>
+                <img src="cart-icon.png" alt="Cart" class="cart-icon">
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Your Perfect Playlist for Every Workout</h2>
-      <p>Discover high-energy tracks to power your gym session.</p>
-      <a href="#songs" class="cta-btn">Browse Songs</a>
-    </div>
-  </section>
+    <!-- "What's on your mind?" Section -->
+   <!-- <section class="mind">
+        <h2>What's on your mind?</h2>
+        <div class="categories">
+            <div class="category" onclick="filterCategory('Pizza')">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.OZny5F6g0QAQPLsU_4HnEAHaE8&pid=Api&P=0&h=180" alt="Pizza" class="category-img">
+                <h3>Pizza</h3>
+            </div>
+            <div class="category" onclick="filterCategory('Dosa')">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.MyGrZAZtuEGVh_nT51eRRQHaHa&pid=Api&P=0&h=180" alt="Dosa" class="category-img">
+                <h3>Dosa</h3>
+            </div>
+            <div class="category" onclick="filterCategory('Burger')">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.TyFXb0SqI3Im2zsEOAcqEwHaLH&pid=Api&P=0&h=180" alt="Burger" class="category-img">
+                <h3>Burger</h3>
+            </div>
+            <div class="category" onclick="filterCategory('Noodles')">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.YaDz19jEI5BUBMqpFTAHHQHaE7&pid=Api&P=0&h=180" alt="Noodles" class="category-img">
+                <h3>Noodles</h3>
+            </div>
+        </div>
+    </section> -->
 
-  <!-- Search Bar -->
-  <section class="search-section">
-    <input type="text" id="search-bar" placeholder="Search songs..." class="search-bar">
-  </section>
+    <!-- "OUR TOP RESTAURANTS" Section -->
+   <!-- <section class="top-restaurants">
+        <h2>OUR TOP RESTAURANTS</h2>
+        <div class="restaurants">
+            <div class="restaurant" onclick="filterRestaurant('Pizza Hub')">
+                <img src="pizza-hub.jpg" alt="Pizza Hub" class="restaurant-img">
+                <h3>Pizza Hub</h3>
+            </div>
+            <div class="restaurant" onclick="filterRestaurant('Mansi Restaurant')">
+                <img src="mansires.png" alt="Mansi Restaurant" class="restaurant-img">
+                <h3>Mansi Restaurant</h3>
+            </div>
+            <div class="restaurant" onclick="filterRestaurant('Royal Family')">
+                <img src="rpyal.png" alt="Royal Family" class="restaurant-img">
+                <h3>Royal Family</h3>
+            </div>
+            <div class="restaurant" onclick="filterRestaurant('Pizza Hot Restro')">
+                <img src="pizza-hot.jpg" alt="Pizza Hot Restro" class="restaurant-img">
+                <h3>Pizza Hot Restro</h3>
+            </div>
+            <div class="restaurant" onclick="filterRestaurant('Country Bite Restro')">
+                <img src="COUNTRYBITE.jpeg" alt="Country Bite Restro" class="restaurant-img">
+                <h3>Country Bite Restro</h3>
+            </div>
+        </div>
+    </section> -->
 
-  <!-- Songs Section -->
-  <section id="songs" class="songs-section">
-    <h2>Popular Gym Songs</h2>
-    <div id="song-list" class="song-list"></div>
-  </section>
+    <!-- Food Products Section -->
+    <section class="products">
+        <h2>Our Products</h2>
+        <div class="product-list" id="product-list">
+            <!-- Dynamic product list will be inserted here -->
+        </div>
+    </section>
 
-  <!-- About Section -->
-  <section id="about" class="about-section">
-    <h2>About Us</h2>
-    <p>Welcome to Gym Music India! Your ultimate destination for workout music.</p>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <h2>Contact Us</h2>
-    <p>Have any questions? Get in touch with us!</p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 Gym Music India | All rights reserved</p>
-  </footer>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="gym2.js"></script>
+    <script src="gym2.js"></script>
 </body>
 </html>
