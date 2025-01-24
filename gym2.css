@@ -1,286 +1,178 @@
-/* General Styles */
+/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style-type: none;
+    font-family: Arial, sans-serif;
 }
 
 /* Navbar Styles */
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.navbar-container {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allow the navbar items to wrap */
+    padding: 10px 20px;
+    background-color: #ff6347;
 }
 
-h1 {
-    font-size: 4vw; /* Make the font size responsive based on viewport width */
-    font-weight: 600;
-    white-space: nowrap; /* Prevent text from wrapping */
+.navbar-left img {
+    width: 60px;
+}
+
+.navbar-middle input {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.navbar-right {
+    position: relative;
+}
+
+.cart {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart-icon {
+    width: 30px;
+    height: 30px;
+}
+
+#cart-quantity {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 12px;
+}
+
+/* What's on your mind Section */
+.mind {
     text-align: center;
-    max-width: 100%; /* Ensures the text takes full width */
-    margin: 0;
+    margin-top: 50px;
 }
 
-nav ul {
+.categories {
     display: flex;
+    justify-content: center;
     gap: 20px;
 }
 
-nav ul li a {
-    font-size: 18px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #ff6f61;
-    transform: scale(1.1);
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('gymb2.jpg') no-repeat center center/cover;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.category {
     text-align: center;
-    color: white;
+    cursor: pointer;
 }
 
-.hero h2 {
-    font-size: 48px;
-    font-weight: 600;
+.category-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 2em;
     margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
-.hero p {
-    font-size: 22px;
-    margin-bottom: 30px;
-    font-weight: 300;
-    letter-spacing: 1px;
-}
-
-.cta-btn {
-    padding: 15px 30px;
-    background-color: #ff6f61;
-    color: white;
-    border-radius: 25px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.cta-btn:hover {
-    background-color: #e8594a;
-    transform: scale(1.1);
-}
-
-/* Search Section */
-.search-section {
+/* Top Restaurants Section */
+.top-restaurants {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
-.search-bar {
-    padding: 10px;
-    width: 60%;
-    font-size: 16px;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    margin: 20px 0;
-    transition: width 0.3s ease, border-color 0.3s ease;
-}
-
-.search-bar:focus {
-    outline: none;
-    border-color: #ff6f61;
-    width: 80%;
-}
-
-/* Songs Section */
-.songs-section {
-    background-color: #fff;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.songs-section h2 {
-    font-size: 36px;
-    margin-bottom: 40px;
-    color: #333;
-    font-weight: 600;
-}
-
-.song-list {
+.restaurants {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
 }
 
-.song-item {
-    background-color: #f9f9f9;
-    padding: 20px;
-    width: 200px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.restaurant {
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: linear-gradient(to bottom, #f9f9f9, #f1f1f1);
+    cursor: pointer;
 }
 
-.song-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.restaurant-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
 }
 
-.song-item h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    font-weight: 500;
+.restaurant h3 {
+    margin-top: 10px;
 }
 
-.song-item p {
-    font-size: 16px;
-    color: #777;
+/* Product List */
+.products {
+    margin-top: 50px;
+    text-align: center;
 }
 
-.song-item button {
-    padding: 10px;
-    background-color: #333;
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Product styling */
+.product {
+    width: 250px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product h3 {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.product p {
+    margin: 5px 0;
+}
+
+.product .restaurant-name {
+    font-size: 1em;
+    color: #666;
+    margin-top: 5px;
+}
+
+.product button {
+    padding: 10px 20px;
+    background-color: #ff6347;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 25px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.song-item button:hover {
-    background-color: #ff6f61;
-    transform: scale(1.05);
+.product button:hover {
+    background-color: #ff4500;
 }
 
-/* About Section */
-.about-section {
-    padding: 60px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-    color: #333;
-}
-
-.about-section h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-.about-section p {
-    font-size: 18px;
-    max-width: 800px;
-    margin: 0 auto;
-    font-weight: 300;
-    line-height: 1.8;
-}
-
-/* Contact Section */
-.contact-section {
-    padding: 60px 20px;
-    background-color: #fff;
-    text-align: center;
-    color: #333;
-}
-
-.contact-section h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-.contact-section p {
-    font-size: 18px;
-    margin-top: 10px;
-    font-weight: 300;
-    line-height: 1.8;
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    font-size: 14px;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 6vw; /* Adjust font size for tablets */
+/* Media Queries for Mobile */
+@media screen and (max-width: 767px) {
+    .product {
+        width: 48%; /* Make each product take up 48% of the width */
+        margin-bottom: 20px; /* Add some spacing between rows */
     }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 8vw; /* Adjust font size for mobile devices */
-        white-space: nowrap; /* Ensure the text stays in one line */
-    }
-
-    .hero h2 {
-        font-size: 32px;
-    }
-
-    .hero p {
-        font-size: 18px;
-    }
-
-    .cta-btn {
-        font-size: 16px;
-    }
-
-    .search-bar {
-        width: 80%;
-    }
-
-    .songs-section h2 {
-        font-size: 24px;
-    }
-
-    .song-list {
-        gap: 10px;
-    }
-
-    .song-item {
-        width: 45%;
+    
+    .navbar-middle input {
+        width: 200px; /* Make the search bar smaller on mobile */
     }
 }
