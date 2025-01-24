@@ -1,80 +1,80 @@
-$(document).ready(function() {
-    // List of all songs (Add your own songs here)
-    const allSongs = [
-      { title: "Power Up", artist: "DJ Muscle", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", genre: "Electronic" },
-      { title: "Pump It", artist: "Fitness Beats", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3", genre: "Hip Hop" },
-      { title: "Speed Thrills", artist: "Workout Jamz", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3", genre: "Rock" },
-      { title: "Hit the Beat", artist: "Energy Tunes", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3", genre: "Pop" },
-      { title: "Endurance", artist: "Motivation Beats", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3", genre: "Reggaeton" },
-      { title: "Strength", artist: "Workout Kings", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3", genre: "Pop" },
-      { title: "Unstoppable", artist: "Fit Jams", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3", genre: "Hip Hop" },
-      { title: "Muscle Flow", artist: "Gym Beats", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3", genre: "Electronic" },
-      // Add more songs as needed
-    ];
-  
-    // Popular songs to display initially
-    const popularSongs = allSongs.slice(0, 5); // Show first 5 popular songs
-  
-    // Store the current audio object for controlling playback
-    let currentAudio = null;
-  
-    // Function to display songs
-    function displaySongs(filteredSongs) {
-      const songList = $('#song-list');
-      songList.empty();  // Clear previous songs
-      filteredSongs.forEach(song => {
-        songList.append(`
-          <div class="song-item">
-            <h3>${song.title}</h3>
-            <p>${song.artist}</p>
-            <button class="play-btn" onclick="playSong('${song.url}', this)">Play</button>
-            <button class="pause-btn" onclick="pauseSong()" style="display: none;">Pause</button>
-          </div>
-        `);
-      });
-    }
-  
-    // Function to play a song
-    window.playSong = function(url, button) {
-      // Pause any currently playing song if there is one
-      if (currentAudio) {
-        currentAudio.pause();
-        // Reset the previous button state: Hide pause and show play
-        $('.pause-btn').hide();
-        $('.play-btn').removeClass('playing-btn').show();
-      }
-  
-      // Create a new audio object for the selected song
-      currentAudio = new Audio(url);
-      currentAudio.play();
-  
-      // Change the color of the play button (make it red) and hide play button, show pause button
-      $(button).addClass('playing-btn').hide();
-      $(button).siblings('.pause-btn').show();
-    };
-  
-    // Function to pause the current song
-    window.pauseSong = function() {
-      if (currentAudio) {
-        currentAudio.pause();
-        // Hide pause button and show play button again
-        $('.pause-btn').hide();
-        $('.play-btn').removeClass('playing-btn').show();
-      }
-    };
-  
-    // Display popular songs initially
-    displaySongs(popularSongs);
-  
-    // Search functionality
-    $('#search-bar').on('input', function() {
-      const searchTerm = $(this).val().toLowerCase();
-      const filteredSongs = allSongs.filter(song => 
-        song.title.toLowerCase().includes(searchTerm) || 
-        song.artist.toLowerCase().includes(searchTerm) || 
-        song.genre.toLowerCase().includes(searchTerm)
-      );
-      displaySongs(filteredSongs);
+// Data for products and restaurants
+const products = [
+    { id: 1, name: 'Margherita Pizza', category: 'Pizza', restaurant: 'Pizza Hub', price: 299, image: 'margherita.jpg', rating: 5 },
+    { id: 2, name: 'Veg Burger', category: 'Burger', restaurant: 'Mansi Restaurant', price: 149, image: 'veg-burger.jpg', rating: 4.5 },
+    { id: 3, name: 'Noodles', category: 'Noodles', restaurant: 'Royal Family', price: 199, image: 'noodles.jpg', rating: 4 },
+    { id: 4, name: 'Cheese Pizza', category: 'Pizza', restaurant: 'Pizza Hot Restro', price: 350, image: 'cheese-pizza.jpg', rating: 4.7 },
+    { id: 5, name: 'Dosa', category: 'Dosa', restaurant: 'Country Bite Restro', price: 120, image: 'dosa.jpg', rating: 4.8 },
+];
+
+// Initialize cart
+let cart = [];
+
+// Render products dynamically
+function renderProducts(filteredProducts) {
+    const productList = document.getElementById('product-list');
+    productList.innerHTML = ''; // Clear previous content
+
+    filteredProducts.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.classList.add('product');
+
+        productElement.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>₹${product.price}</p>
+            <p>Rating: ${'★'.repeat(product.rating)} (${product.rating})</p>
+            <p class="restaurant-name">${product.restaurant}</p> <!-- Display restaurant name -->
+            <button onclick="addToCart(${product.id})">Add to Cart</button>
+        `;
+        
+        productList.appendChild(productElement);
     });
-  });
-  
+}
+
+// Filter products by category
+function filterCategory(category) {
+    const filteredProducts = products.filter(product => product.category === category);
+    renderProducts(filteredProducts);
+}
+
+// Filter products by restaurant
+function filterRestaurant(restaurant) {
+    const filteredProducts = products.filter(product => product.restaurant === restaurant);
+    renderProducts(filteredProducts);
+}
+
+// Search products
+function filterSearch() {
+    const query = document.getElementById('search-bar').value.toLowerCase();
+    const filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(query) || product.restaurant.toLowerCase().includes(query)
+    );
+    renderProducts(filteredProducts);
+}
+
+// Add product to cart
+function addToCart(productId) {
+    const product = products.find(p => p.id === productId);
+    const existingProduct = cart.find(item => item.id === productId);
+
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push({...product, quantity: 1});
+    }
+
+    document.getElementById('cart-quantity').textContent = cart.reduce((total, item) => total + item.quantity, 0);
+
+
+    // Store updated cart in localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function redirectToCart() {
+    window.location.href = 'cart.html';
+}
+   
+
+// Initial render of all products
+renderProducts(products);
